@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	NotEnoughDataError  = errors.New("not enough rows to support this many variables.")
+	NotEnoughDataError  = errors.New("not enough rows to support this many variables")
 	NoTrainingDataError = errors.New("you need to Fit() before you can Predict()")
 )
 
@@ -35,7 +35,7 @@ func (lr *LinearRegression) Fit(inst base.FixedDataGrid) error {
 	// Validate class Attribute count
 	classAttrs := inst.AllClassAttributes()
 	if len(classAttrs) != 1 {
-		return fmt.Errorf("Only 1 class variable is permitted")
+		return fmt.Errorf("only 1 class variable is permitted")
 	}
 	classAttrSpecs := base.ResolveAttributes(inst, classAttrs)
 
@@ -69,7 +69,7 @@ func (lr *LinearRegression) Fit(inst base.FixedDataGrid) error {
 		return true, nil
 	})
 
-	// Build the explainatory variables
+	// Build the explanatory variables
 	inst.MapOverRows(attrSpecs, func(row [][]byte, i int) (bool, error) {
 		// Set intercepts to 1.0
 		explVariables.Set(i, 0, 1.0)
